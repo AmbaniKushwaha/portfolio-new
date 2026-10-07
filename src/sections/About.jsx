@@ -28,7 +28,7 @@ const highlights = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section id="about" className="py-32 px-10  relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column */}
@@ -49,30 +49,20 @@ export const About = () => {
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+               I'm a Full-Stack Developer passionate about building modern, thoughtful digital experiences. I enjoy turning ideas into clean, responsive interfaces and reliable applications that are built to perform.
               </p>
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+               My work spans both frontend and backend development, with a strong focus on modern technologies, intuitive UI, and scalable solutions. I love working with React, ReactJs, JavaScript, and modern web technologies, while always paying attention to the details that make a product feel polished.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+               For me, great development isn't just about writing code — it's about solving problems, creating meaningful experiences, and turning ideas into products people enjoy using.
+              When I'm not building something, I'm usually exploring new technologies, experimenting with ideas, or improving my craft.
               </p>
             </div>
 
             <div className="glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300">
               <p className="text-lg font-medium italic text-foreground">
-                "My mission is to create digital experiences that are not just
-                functional, but truly delightful — products that users love to
-                use and developers love to maintain."
+                “Building digital experiences that are beautiful on the surface and powerful underneath.”
               </p>
             </div>
           </div>

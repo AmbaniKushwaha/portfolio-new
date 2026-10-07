@@ -1,12 +1,13 @@
 import { Button } from "@/components/Button";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import image from "/logo.png";
 
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
-  { href: "#testimonials", label: "Testimonials" },
+  // { href: "#testimonials", label: "Testimonials" },
 ];
 
 export const Navbar = () => {
@@ -25,7 +26,7 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
+      className={`fixed px-10  top-0 left-0 right-0 transition-all duration-500 ${
         isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
       }  z-50`}
     >
@@ -34,7 +35,7 @@ export const Navbar = () => {
           href="#"
           className="text-xl font-bold tracking-tight hover:text-primary"
         >
-          PM<span className="text-primary">.</span>
+          <img src={image} alt="Logo" className="w-12 h-12 rounded-3xl" />
         </a>
 
         {/* Desktop Nav */}

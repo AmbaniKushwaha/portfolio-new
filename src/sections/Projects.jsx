@@ -2,46 +2,46 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
-    title: "Fintech Dashboard",
+    title: "Smart Procurement & Queue Management System",
     description:
-      "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
+  "A smart procurement platform designed to streamline purchasing workflows, manage queues, and improve operational efficiency.",
     image: "/projects/project1.png",
-    tags: ["React", "Typescript", "NodeJS"],
-    link: "#",
-    github: "#",
+    tags: ["React", "JavaScript", "NodeJS"],
+    link: "https://smartprocurement-two.vercel.app/",
+    github: "https://github.com/gauravsahu006/smartprocurement",
   },
   {
-    title: "E-Commerce Platform",
+    title: "1820 Production",
     description:
-      "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard.",
+      "A frontend recreation of the 1820 Production website, focused on responsive design, smooth animations, and immersive interactions.",
     image: "/projects/project2.png",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-    link: "#",
-    github: "#",
+    tags: ["HTML","CSS","JavaScipt","GSAP"],
+    link: "https://ambanikushwaha.github.io/1820production/",
+    github: "https://github.com/AmbaniKushwaha/1820production",
   },
   {
-    title: "AI Writing Assistant",
+    title: "Bungee - Portfolio & Agency Website Template",
     description:
-      "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
+      "Redesigned the Bungee portfolio template with a modern UI, responsive layouts, and polished frontend interactions using HTML, CSS, and JavaScript.",
     image: "/projects/project3.png",
-    tags: ["React", "OpenAI", "Python", "FastAPI"],
-    link: "#",
-    github: "#",
+    tags: ["HTML5" , "CSS3" ,"JavaScript"],
+    link: "https://ambanikushwaha.github.io/bungee/",
+    github: "https://github.com/AmbaniKushwaha/bungee",
   },
   {
-    title: "Project Management Tool",
+    title: "Book - Portfolio",
     description:
-      "A collaborative workspace for teams with real-time updates, task tracking, and integrations.",
+      "A creative book-inspired portfolio with a clean UI, responsive layout, and interactive user experience.",
     image: "/projects/project4.png",
-    tags: ["Next.js", "Socket.io", "MongoDB", "Redis"],
-    link: "#",
-    github: "#",
+    tags: ["HTML5" , "CSS3" ,"JavaScript"],
+    link: "https://ambanikushwaha.github.io/bookPortfolio/",
+    github: "https://github.com/AmbaniKushwaha/bookPortfolio",
   },
 ];
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-32 relative overflow-hidden">
+    <section id="projects" className="py-32 px-10 relative overflow-hidden">
       {/* Bg glows */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
@@ -107,12 +107,12 @@ export const Projects = () => {
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <ArrowUpRight
+                  {/* <ArrowUpRight
                     className="w-5 h-5 
                   text-muted-foreground group-hover:text-primary
                    group-hover:translate-x-1 
                    group-hover:-translate-y-1 transition-all"
-                  />
+                  /> */}
                 </div>
                 <p className="text-muted-foreground text-sm">
                   {project.description}
