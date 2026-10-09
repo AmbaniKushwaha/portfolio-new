@@ -5,6 +5,7 @@ import {
   Github,
   Linkedin,
   Twitter,
+  Instagram,
   Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
@@ -28,7 +29,7 @@ const skills = [
 
 export const Hero = () => {
   return (
-    <section className="relative px-10 min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
       <div className="absolute inset-0">
         <img
@@ -59,7 +60,7 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12z items-center">
           {/* Left Column - Text Content */}
           <div className="space-y-8">
             <div className="animate-fade-in">
@@ -80,7 +81,7 @@ export const Hero = () => {
                   {/* with precision */}
                 </span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
+              <p className="text-lg text-muted-foreground max-w-2xl animate-fade-in animation-delay-200">
                 Hi, I'm Ambani Kushwaha. I am currently pursuing a Bachelor of Technology (B.Tech) in Computer Science from Gyan Ganga College of Technology. 
                 I am passionate about learning and exploring new technologies, and I have a strong interest in building my knowledge in the field of computer science.
               </p>
@@ -101,9 +102,10 @@ export const Hero = () => {
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
+                { icon: Github, href: "https://github.com/AmbaniKushwaha" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/ambani-kushwaha-ab6236377" },
+                { icon : Instagram , href: "https://www.instagram.com/innovate_with_cs?stkn=cDQ2bHhkbDRrbHV2"}
+                // { icon: Twitter, href: "#" },
               ].map((social, idx) => (
                 <a
                   key={idx}

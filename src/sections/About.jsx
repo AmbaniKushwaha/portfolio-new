@@ -28,7 +28,7 @@ const highlights = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-32 px-10  relative overflow-hidden">
+    <section id="about" className="py-32  relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column */}
@@ -68,11 +68,11 @@ export const About = () => {
           </div>
 
           {/* Right Column - Hilights */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2   gap-6">
             {highlights.map((item, idx) => (
               <div
                 key={idx}
-                className="glass p-6 rounded-2xl animate-fade-in"
+                className="glass p-6 rounded-2xl  hover:border-primary/50 transition-all duration-500 animate-fade-in"
                 style={{ animationDelay: `${(idx + 1) * 100}ms` }}
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20">

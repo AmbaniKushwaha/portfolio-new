@@ -29,19 +29,20 @@ const projects = [
     github: "https://github.com/AmbaniKushwaha/bungee",
   },
   {
-    title: "Book - Portfolio",
+    title: "Bugatti",
     description:
-      "A creative book-inspired portfolio with a clean UI, responsive layout, and interactive user experience.",
+      "A sleek Bugatti-inspired website featuring a premium automotive design, responsive layouts, and smooth interactive experiences.",
     image: "/projects/project4.png",
-    tags: ["HTML5" , "CSS3" ,"JavaScript"],
-    link: "https://ambanikushwaha.github.io/bookPortfolio/",
-    github: "https://github.com/AmbaniKushwaha/bookPortfolio",
-  },
+    tags: ["HTML5", "CSS3", "JavaScript"],
+    link: "https://ambanikushwaha.github.io/Bugatti/",
+    github: "https://github.com/AmbaniKushwaha/Bugatti",
+  }
+
 ];
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-32 px-10 relative overflow-hidden">
+    <section id="projects" className="py-32  relative overflow-hidden">
       {/* Bg glows */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
