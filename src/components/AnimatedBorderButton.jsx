@@ -1,16 +1,24 @@
-import { Download } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-export const AnimatedBorderButton = ({ children }) => {
-  return (
-    <button
-      className="relative bg-transparent border border-border 
-        text-foreground hover:border-primary/50 transition-all 
-        duration-1000 focus:outline-none focus-visible:ring-2 
-        focus-visible:ring-primary focus-visible:ring-offset-2 
-        disabled:opacity-50 disabled:cursor-not-allowed group 
-        px-8 py-4 text-lg font-medium rounded-full overflow-visible 
-        animated-border"
-    >
+export const AnimatedBorderButton = ({
+  children,
+  href,
+  download,
+  className = "",
+  onClick,
+  ...props
+}) => {
+  const navigate = useNavigate();
+  const commonClasses = `relative inline-flex items-center justify-center bg-transparent border border-border 
+    text-foreground hover:border-primary/50 transition-all 
+    duration-1000 focus:outline-none focus-visible:ring-2 
+    focus-visible:ring-primary focus-visible:ring-offset-2 
+    disabled:opacity-50 disabled:cursor-not-allowed group 
+    px-8 py-4 text-lg font-medium rounded-full overflow-visible 
+    animated-border cursor-pointer ${className}`;
+
+  const content = (
+    <>
       {/* Animated SVG Border */}
       <svg
         className="absolute left-0 top-0 w-full h-full pointer-events-none download-cv-border"
@@ -33,6 +41,44 @@ export const AnimatedBorderButton = ({ children }) => {
       <span className="relative z-10 flex items-center justify-center gap-2">
         {children}
       </span>
+    </>
+  );
+
+  const handleClick = (e) => {
+    if (onClick) {
+      onClick(e);
+    }
+    // If it's an internal SPA route and not a file download or external tab
+    if (
+      href &&
+      !download &&
+      !props.target &&
+      href.startsWith("/") &&
+      !href.startsWith("//") &&
+      !href.includes("#")
+    ) {
+      e.preventDefault();
+      navigate(href);
+    }
+  };
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        download={download}
+        className={commonClasses}
+        onClick={handleClick}
+        {...props}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <button className={commonClasses} onClick={onClick} {...props}>
+      {content}
     </button>
   );
 };

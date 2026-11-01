@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/Button";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 
 const contactInfo = [
   {
@@ -43,53 +42,73 @@ export const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    setIsLoading(true);
-    setSubmitStatus({ type: null, message: "" });
-    try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  setIsLoading(true);
+  setSubmitStatus({ type: null, message: "" });
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error(
-          "EmailJS configuration is missing. Please check your environment variables."
-        );
-      }
+  try {
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
+    if (!accessKey) {
+      throw new Error("Web3Forms Access Key is missing.");
+    }
+
+    const response = await fetch(
+      "https://api.web3forms.com/submit",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
           name: formData.name,
           email: formData.email,
           message: formData.message,
-        },
-        publicKey
-      );
+          subject: `New Portfolio Message from ${formData.name}`,
+        }),
+      }
+    );
 
+    const result = await response.json();
+
+    if (result.success) {
       setSubmitStatus({
         type: "success",
         message: "Message sent successfully! I'll get back to you soon.",
       });
-      setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
-      console.error("EmailJS error:", error);
-      setSubmitStatus({
-        type: "error",
-        message:
-          error.text || "Failed to send message. Please try again later.",
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
       });
-    } finally {
-      setIsLoading(false);
+    } else {
+      throw new Error(
+        result.message || "Failed to send message."
+      );
     }
-  };
+  } catch (err) {
+    console.error("Web3Forms error:", err);
+
+    setSubmitStatus({
+      type: "error",
+      message:
+        err.message || "Failed to send message. Please try again later.",
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+
   return (
     <section
   id="contact"
-  className="py-20 sm:py-24 lg:py-32 relative overflow-hidden"
+  className="py-20 sm:py-24 lg:py-32 relative overflow-hidden scroll-mt-10"
 >
   {/* Background Effects */}
   <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -122,7 +141,7 @@ export const Contact = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-5xl mx-auto">
       {/* Contact Form */}
       <div className="glass p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl border border-primary/30 min-w-0">
-        <form className="space-y-5 sm:space-y-6" onSubmit={handleSubmit}>
+        <form id="contact-form" className="space-y-5 sm:space-y-6" onSubmit={handleSubmit}>
           {/* Name */}
           <div>
             <label
